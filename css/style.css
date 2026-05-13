@@ -1,0 +1,517 @@
+/* 1. CONFIGURAÇÃO GLOBAL (Visual da Página) */
+* {
+	box-sizing: border-box;
+	/* Quando você usa essa propriedade, você está
+	 dizendo ao navegador: "O tamanho que eu dei
+	 é o tamanho final. Se eu adicionar borda ou 
+	 espaço interno, dê um jeito de espremer o 
+	 conteúdo lá dentro." */
+}
+/* Alinha o título principal. Adicionei para ficar melhor */
+.tituloPrincipal {
+    text-align: center;
+}
+
+/*Galeria animada para carregar letras da direita para a esquerda*/ /* Container do título centralizado */
+.galeria-animada {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow: hidden;
+    font-size: 2.5rem; /* Ajuste o tamanho conforme seu layout */
+    font-family: sans-serif;
+}
+
+/* Configuração de espaçamento manual entre as palavras */
+.galeria-animada .espaco {
+    width: 12px; 
+}
+
+/* Configuração inicial de cada letra */
+.galeria-animada span:not(.espaco) {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(100vw); /* Começa totalmente fora da tela, à direita */
+    animation: agruparNoCentro 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Animação que move para o centro e revela a letra */
+@keyframes agruparNoCentro {
+    0% {
+        opacity: 0;
+        transform: translateX(100vw);
+    }
+    40% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* Para na posição correta do fluxo do texto */
+    }
+}
+
+/* Definição do atraso (delay) de cada letra para o efeito de fila */
+.galeria-animada span:nth-child(1)  { animation-delay: 0.0s; }
+.galeria-animada span:nth-child(2)  { animation-delay: 0.05s; }
+.galeria-animada span:nth-child(3)  { animation-delay: 0.1s; }
+.galeria-animada span:nth-child(4)  { animation-delay: 0.15s; }
+.galeria-animada span:nth-child(5)  { animation-delay: 0.2s; }
+/* caractere 6 é o espaço */
+.galeria-animada span:nth-child(7)  { animation-delay: 0.25s; }
+.galeria-animada span:nth-child(8)  { animation-delay: 0.3s; }
+.galeria-animada span:nth-child(9)  { animation-delay: 0.35s; }
+.galeria-animada span:nth-child(10) { animation-delay: 0.4s; }
+.galeria-animada span:nth-child(11) { animation-delay: 0.45s; }
+.galeria-animada span:nth-child(12) { animation-delay: 0.5s; }
+.galeria-animada span:nth-child(13) { animation-delay: 0.55s; }
+/* caractere 14 é o espaço */
+.galeria-animada span:nth-child(15) { animation-delay: 0.6s; }
+.galeria-animada span:nth-child(16) { animation-delay: 0.65s; }
+/* caractere 17 é o espaço */
+.galeria-animada span:nth-child(18) { animation-delay: 0.7s; }
+.galeria-animada span:nth-child(19) { animation-delay: 0.75s; }
+.galeria-animada span:nth-child(20) { animation-delay: 0.8s; }
+.galeria-animada span:nth-child(21) { animation-delay: 0.85s; }
+.galeria-animada span:nth-child(22) { animation-delay: 0.9s; }
+.galeria-animada span:nth-child(23) { animation-delay: 0.95s; }
+.galeria-animada span:nth-child(24) { animation-delay: 1.0s; }
+.galeria-animada span:nth-child(25) { animation-delay: 1.05s; }
+.galeria-animada span:nth-child(26) { animation-delay: 1.1s; }
+
+/* Evita que bordas estuquem o tamanho dos elementos */
+
+body {
+	margin: 0;
+	/* Tira o espaço em branco padrão que vem nas bordas da página */
+	display: flex;
+	/* Ativa o 'modo organizador' para alinhar os elementos facilmente */
+	flex-direction: column;
+	/* Empilha os elementos um embaixo do outro (como uma coluna) */
+	align-items: center;
+	/* Alinha todos os elementos exatamente no centro horizontal */
+	background: rgb(96, 187, 237);
+	/* Define a cor de fundo (esse é o azul que você escolheu) */
+	padding-top: 0px;
+	/* Cria um espaço de respiro no topo para o título não grudar no teto */
+	font-family: sans-serif;
+	/* Escolhe uma fonte limpa e sem 'pezinhos' nas letras */
+	min-height: 100vh;
+	/* Garante que o fundo cubra a tela inteira, mesmo se tiver pouco conteúdo */
+}
+/* imagem topo */
+.banner-topo {
+    width: 100%;             /* Garante que o container ocupe toda a largura da tela */
+    height: 100px;            /* Define a altura fixa que você pediu */
+    overflow: hidden;        /* Esconde qualquer parte da imagem que sobrar para fora dos 30px */
+}
+
+.banner-topo img {
+    width: 100%;             /* Faz a imagem esticar para ocupar toda a largura */
+    height: 100%;            /* Faz a imagem ocupar toda a altura do container (30px) */
+    object-fit: cover;       /* O SEGREDO: Corta a imagem proporcionalmente para não ficar "achatada" */
+    object-position: center; /* Garante que o meio da foto apareça */
+	
+}
+/* 3. Espaçamento para o Título */
+/* Como tiramos o padding do body, precisamos dar espaço pro título não grudar na imagem */
+.header-central {
+    margin-top: 40px;      /* Dá um espaço entre a imagem do topo e o nome do restaurante */
+    text-align: center;
+}
+/* 2. ANIMAÇÕES (Os Roteiros) */
+@keyframes pulso {
+
+	0%,
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+
+	50% {
+		transform: scale(1.05);
+		opacity: 0.9;
+	}
+}
+
+@keyframes passarBichos {
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+@keyframes marquee {
+	from {
+		left: 100%;
+	}
+
+	to {
+		left: -100%;
+	}
+}
+
+/* 3. CABEÇALHO E LETREIRO */
+.header-central {
+	text-align: center;
+	width: 100%;
+	margin-bottom: 40px;
+}
+
+.container-titulo {
+	animation: pulso 2s infinite ease-in-out;
+}
+
+.titulo-principal {
+	font-family: 'Arial Black', sans-serif;
+	font-size: 70px;
+	color: #000;
+	margin: 0;
+}
+
+/* --- AJUSTE DOS BICHOS (MARQUEE) --- */
+
+/* --- LETREIRO DOS ANIMAIS (VERSÃO GIGANTE) --- */
+.letreiro-animais {
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	padding: 20px 0;
+}
+
+/* Aqui é onde a mágica acontece */
+.marquee-content {
+	display: inline-block;
+	animation: passarBichos 10s linear infinite;
+}
+
+/* Este seletor garante que QUALQUER coisa dentro do letreiro cresça */
+.marquee-content span,
+.marquee-content i,
+.bichos {
+	font-size: 120px !important;
+	/* O !important garante que ninguém ignore essa ordem */
+	padding-right: 50px;
+	display: inline-block;
+}
+
+@keyframes passarBichos {
+	from {
+		transform: translateX(0);
+	}
+
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+/* 4. BOTÕES 3D (Efeito de Cubo que Gira) */
+.menu-container {
+	display: flex;
+	gap: 30px;
+	margin-bottom: 60px;
+}
+
+.btn-3d {
+	position: relative;
+	width: 150px;
+	height: 50px;
+	transform-style: preserve-3d;
+	transition: 0.5s;
+}
+
+.btn-3d:hover {
+	transform: perspective(1000px) rotateX(90deg);
+}
+
+.btn-3d span {
+	position: absolute;
+	inset: 0;
+
+	/* Atalho para top/left/width/height 100% */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	border: 2px solid #000;
+	background: rgba(1, 59, 248, 0.9);
+	backface-visibility: hidden;
+	transition: 0.5s;
+}
+
+.btn-3d:hover span {
+	background: #e11212;
+	color: #fff;
+}
+
+/* Posicionamento das faces do botão */
+.btn-3d span:nth-child(1) {
+	transform: translateZ(25px);
+}
+
+.btn-3d span:nth-child(2) {
+	transform: rotateX(-90deg) translateZ(25px);
+}
+
+/* 5. CARDS DE COMIDA (Efeito de Elevação) */
+.cards-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 20px;
+	padding: 20px;
+}
+
+.card {
+	background: white;
+	border-radius: 15px;
+	width: 250px;
+	overflow: hidden;
+	transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+	transform: translateY(-15px) scale(1.03);
+	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-img {
+	width: 100%;
+	height: 180px;
+	object-fit: cover;
+	transition: 0.5s;
+}
+
+/* 6. FORMULÁRIO (Efeito de Foco/Zoom) */
+
+.contato-container {
+    background: rgba(255, 255, 255, 0.3); /* Fundo sutil */
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+/* 2. O FORMULÁRIO (O pai de todos) */
+.form-contato {
+    display: flex !important;       /* FORÇA o modo organizador */
+    flex-direction: column;         /* Empilha as LINHAS */
+    gap: 15px;                      /* Espaço entre cada andar do formulário */
+}
+
+/* 3. AS LINHAS (Onde os campos ficam lado a lado) */
+.input-row {
+    display: flex !important;       /* FORÇA o modo lado a lado */
+    flex-direction: row;            /* Garante que seja horizontal */
+    gap: 15px;                      /* Espaço entre os campos vizinhos */
+    width: 100%;
+}
+
+/* 4. OS CAMPOS (Inputs e Textarea) */
+.form-contato input, 
+.form-contato textarea {
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    width: 100%;                    /* Ocupa o espaço que o FLEX der para ele */
+    box-sizing: border-box;         /* Lembra? Para a borda não expulsar o campo */
+}
+
+/* 5. AS PROPORÇÕES (A mágica da divisão) */
+/* Se a linha tiver flex-1 e flex-3, o flex-3 será 3x maior */
+.flex-1 { flex: 1 !important; }
+.flex-2 { flex: 2 !important; }
+.flex-3 { flex: 3 !important; }
+
+/* 6. O BOTÃO (Para não ficar pequeno como na imagem) */
+.btn-enviar {
+    background: #262626;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    width: fit-content;             /* O botão fica do tamanho do texto */
+    align-self: center;             /* Centraliza o botão no meio do formulário */
+}
+
+/* --- FOOTER SOCIAL --- */
+.social-footer {
+	width: 100%;
+	padding: 40px 0;
+	background: #262626;
+	display: flex;
+	justify-content: center;
+}
+
+.social-icons {
+	display: flex;
+	list-style: none;
+	gap: 15px;
+}
+
+.social-icons li a {
+	width: 60px;
+	height: 60px;
+	background-color: #fff;
+	text-align: center;
+	line-height: 60px;
+	font-size: 25px;
+	display: block;
+	border-radius: 50%;
+	position: relative;
+	overflow: hidden;
+	/* Corta a cor que vem de baixo */
+	border: 3px solid #fff;
+	z-index: 1;
+	transition: .5s;
+	color: #262626;
+	/* Cor inicial do ícone */
+	text-decoration: none;
+}
+
+/* O "Segredo": A cor que sobe */
+.social-icons li a:before {
+	content: "";
+	position: absolute;
+	top: 100%;
+	/* Começa escondido abaixo do botão */
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transition: .5s;
+	z-index: -1;
+	/* Fica atrás do ícone, mas na frente do fundo branco */
+}
+
+/* Quando passa o mouse */
+.social-icons li a:hover {
+	color: #fff;
+	/* Muda o ícone para branco */
+}
+
+.social-icons li a:hover:before {
+	top: 0;
+	/* Sobe a cor de fundo */
+}
+
+/* Cores específicas de cada rede */
+.social-icons li:nth-child(1) a:before {
+	background: #3b5999;
+}
+
+/* Facebook */
+.social-icons li:nth-child(2) a:before {
+	background: #55acee;
+}
+
+/* Twitter */
+.social-icons li:nth-child(3) a:before {
+	background: #0077b5;
+}
+
+/* LinkedIn */
+.social-icons li:nth-child(4) a:before {
+	background: #dd4b39;
+}
+
+/* Instagram/Google */
+
+/* Efeitoo fumaça subindo pelas laterais*/
+body {
+  position: relative;
+}
+
+/* 1. O GERADOR (Fica fixo e estacionado estritamente no rodapé da página) */
+.smoke-generator {
+  position: absolute; /* Preso ao documento */
+  bottom: 0;          /* Grudado no chão do rodapé */
+  width: 120px;
+  height: 80px;       /* Altura apenas do tamanho do seu GIF */
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* 2. AS NUVENS (Ficam fixas na tela para conseguirem viajar até o topo) */
+.smoke-container {
+  position: fixed;    /* Preso na janela do navegador */
+  bottom: 0;          
+  width: 120px;
+  height: 100vh;      /* Resgata a altura total da janela do usuário */
+  pointer-events: none;
+  z-index: 9998;      /* Fica um nível abaixo do gerador */
+}
+
+.left { left: 10px; }
+.right { right: 10px; }
+
+/* Estilo do GIF estático */
+.smoke-source {
+  width: 100%;
+  height: auto;
+  opacity: 0.6;
+}
+
+/* Nuvens de fumaça cartoon */
+.smoke-cloud {
+  position: absolute;
+  bottom: 20px;       /* Brota da mesma altura do GIF */
+  width: 70px;
+  height: 70px;
+  background: rgba(240, 240, 240, 0.25);
+  border-radius: 50%;
+  box-shadow: 
+    15px 15px 0 8px rgba(240, 240, 240, 0.25),
+    -15px 8px 0 4px rgba(240, 240, 240, 0.25);
+  filter: blur(4px);
+  animation: floatUpToTop 7s infinite linear; /* Nova animação fluida */
+  opacity: 0;
+}
+
+/* Quebra de sincronia das nuvens */
+.s1 { animation-delay: 0s; left: 15px; }
+.s2 { animation-delay: 2.5s; left: 45px; animation-duration: 8.5s; }
+.s3 { animation-delay: 5s; left: 30px; animation-duration: 6s; }
+
+/* 3. A ANIMAÇÃO (Faz a fumaça cruzar a tela toda de baixo até o teto) */
+@keyframes floatUpToTop {
+  0% {
+    transform: translateY(0) scale(0.5) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7; /* Ganha visibilidade logo ao sair do GIF */
+  }
+  50% {
+    transform: translateY(-50vh) scale(1) translateX(20px); /* Balanço no meio da tela */
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.1; /* Começa a sumir perto do topo */
+  }
+  100% {
+    transform: translateY(-105vh) scale(1.4) translateX(-15px); /* Ultrapassa o teto da tela */
+    opacity: 0;
+  }
+}
+
+/* Gif de bem vindo */
+.box {
+  /* Mantém as propriedades que você já configurou para a sua box */
+  text-align: center; /* Centraliza o GIF horizontalmente se a box for larga */
+}
+
+.welcome-gif {
+  max-width: 100%;    /* Impede que o GIF estoure o tamanho da caixa pai */
+  height: auto;       /* Mantém a proporção correta do GIF sem achatar */
+  display: inline-block; 
+}
+
+.text-textomeio {
+  text-align: center; /* Centraliza o texto do H3 perfeitamente */
+  width: 100%;        /* Garante que a div ocupe a tela inteira de ponta a ponta */
+  margin-bottom: 20px; /* Cria um espaço saudável antes de começar a galeria embaixo */
+}

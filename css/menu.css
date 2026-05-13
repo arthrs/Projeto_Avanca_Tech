@@ -1,0 +1,70 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* Menu em cima, Título embaixo */
+    justify-content: center;
+    align-items: center;
+    background-color: navajowhite;
+}
+
+/* Container que segura todos os botões do menu */
+.menu-container {
+    display: flex;
+    gap: 30px; /* Espaço entre os botões do menu */
+    margin-bottom: 50px; /* Espaço para o título não grudar no menu */
+}
+
+.btn-3d {
+    position: relative;
+    width: 150px;
+    height: 50px;
+    transition: 0.5s; /* Ajustado de 4s para 0.5s para ser mais ágil */
+    transform-style: preserve-3d;
+    text-decoration: none;
+}
+
+.btn-3d:hover {
+    transform: perspective(1000px) rotateX(90deg); /* Gira apenas o suficiente para mostrar a próxima face */
+}
+
+.btn-3d span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    background: rgba(255, 255, 255, 0.9);
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-size: 16px; /* Ajustado para caber palavras maiores */
+    letter-spacing: 1px;
+    transition: 0.5s;
+    border: 2px solid #000;
+    box-sizing: border-box;
+}
+
+.btn-3d:hover span {
+    color: #fff;
+    background: #e11212; /* Vermelho para combinar com seus testes anteriores */
+}
+
+/* Posicionamento das faces do cubo */
+.btn-3d span:nth-child(1) { transform: rotateX(0deg) translateZ(25px); }
+.btn-3d span:nth-child(2) { transform: rotateX(270deg) translateZ(25px); }
+.btn-3d span:nth-child(3) { transform: rotateX(180deg) translateZ(25px); }
+.btn-3d span:nth-child(4) { transform: rotateX(90deg) translateZ(25px); }
+
+/* Estilo do Título */
+.titulo-principal {
+    font-family: 'Arial Black', sans-serif;
+    color: #333;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
